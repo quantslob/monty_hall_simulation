@@ -5,13 +5,15 @@
 
 n <- 3 ### number of doors
 r <- 1 ### number of losing doors revealed by host, must be > 0 AND < n - 1
-nn <- 10000 #### total number of simulations
+nn <- 20000 #### total number of simulations
 
 #############
 
 os_wins <- logical(nn)
 sw_wins <- logical(nn)
 d_space <- I(1:n)
+
+xxnow <- Sys.time()
 
 kk <- 0
 while(kk < nn) {
@@ -33,5 +35,6 @@ cat("proportion original selection wins: ", sum(os_wins) / nn, "\n")
 
 cat("proportion switching wins: ", sum(sw_wins) / nn, "\n")
 
+cat("run time:", difftime(Sys.time(), xxnow, units="sec"), "secs", "\n")
 
 

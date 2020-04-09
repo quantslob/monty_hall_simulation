@@ -2,6 +2,9 @@
 <?php
     
     
+    $time_start = hrtime(true);
+
+    
     ///// you need a server to run this
     ///// if you have a Mac, the OS comes with a base php install that can run a local server
     ///// in Terminal, change directory to the folder that contains this file
@@ -12,7 +15,7 @@
     
     $n = 3 ; // number of doors
     $r = 1 ; // number of losing doors revealed by host, must be > 0 AND < n - 1
-    $nn = 200000 ; // total number of simulations -- if you make this too large, your php server may puke
+    $nn = 1000000 ; // total number of simulations -- if you make this too large, your php server may puke
     
     //////////
     
@@ -64,6 +67,16 @@
     echo '<br/>' ;
     echo 'proportion switching wins: ' . array_sum($sw_wins) / $nn ;
     
+    
+
+
+    echo '<br/>' ;
+    
+
+    $time_end = hrtime(true);
+    $time = ($time_end - $time_start) / 1e9 ;
+
+    echo "Run time: $time seconds\n";
     
     ?>
 
